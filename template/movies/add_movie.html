@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Form page!!</p>
+<form method="get">
+    {% for field in form.visible_fields %}
+    {{ field.label }}
+    {{ field }}
+    {% endfor %}
+    <input  type="submit" value="search">
+    <a href="{% url 'addmovie' %}" class="btn pull-left reset">Reset</a>
+</form>
+
+<ul>
+    {% for object in results %}
+        {{object}}
+     {% endfor %}
+</ul>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$( function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script>
+</body>
+</html>

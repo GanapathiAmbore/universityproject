@@ -1,7 +1,13 @@
 from django.shortcuts import render
-from university_app.models import University,College
+from university_app.models import College
+from university_app.forms import UniversityForm
 
 def home(request):
-    universities=University.objects.all()
-    return render(request,'home.html',{'universities':universities})
+    universities=College.objects.filter(name='mallareddy')
+    return render(request,'university/home.html',{'universities':universities})
+
+def adduniversity(request):
+    form=UniversityForm()
+    return render(request,'university/add_university_form.html',{'form':form})
+
 

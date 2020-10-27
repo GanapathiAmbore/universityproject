@@ -12,7 +12,10 @@
   </head>
   <body>
 
-    <p>Home page!!</p>
+{% for obj in universities %}
+    {{obj.university}}
+    {{obj.name}}
+{% endfor %}
 
     <!-- Optional JavaScript; choose one of the two! -->
 
